@@ -20,17 +20,16 @@ public class Abbonamento {
     @Column(name = "codice_univoco_abbonamento", unique = true, nullable = false)
     private long codice_univoco_abbonamento;
 
-    @Column(name = "data_emmissione")
+    @Column(name = "data_emmissione", nullable = false)
     private LocalDate data_emmissione;
 
-    @Column(name = "data_scadenza")
+    @Column(name = "data_scadenza", nullable = false)
     private LocalDate data_scadenza;
 
-    @Column(name = "tipologia_abbonamento")
-    @Enumerated(EnumType.STRING)
+    @Column(name = "tipologia_abbonamento", nullable = false)
     private Enum tipologia_abbonamento;
 
-    @Column(name = "prezzo")
+    @Column(name = "prezzo", nullable = false)
     private double prezzo;
 
     public Abbonamento(){}

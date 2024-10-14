@@ -11,10 +11,10 @@ import java.util.List;
 public class Utente {
     @Id
     @GeneratedValue
-    @Column(name = "id_utente")
+    @Column(name = "id_utente", nullable = false)
     private long id;
 
-    @Column(name = "nome")
+    @Column(name = "nome", nullable = false)
     private String nome;
 
     @Column(name = "cognome")
