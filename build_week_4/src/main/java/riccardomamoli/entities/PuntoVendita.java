@@ -2,6 +2,8 @@ package riccardomamoli.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "punto_vendita")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -9,8 +11,11 @@ import jakarta.persistence.*;
 public abstract class PuntoVendita {
     @Id
     @GeneratedValue
-    @Column(name = "id")
+    @Column(name = "id_punto_vendita")
     private long id;
+
+    @OneToMany(mappedBy = "punto_vendita")
+    private List<Abbonamento> abbonamenti;
 
     public PuntoVendita(){}
 
