@@ -23,10 +23,6 @@ public abstract class PuntoVendita {
     public PuntoVendita() {
     }
 
-    public PuntoVendita(long id) {
-        this.id = id;
-    }
-
     public long getId() {
         return id;
     }

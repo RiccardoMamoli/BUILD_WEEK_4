@@ -36,19 +36,16 @@ public class Biglietto {
     @Column(name = "timbrato")
     private boolean timbrato;
 
-    @Column(name = "prezzo")
-    private double prezzo;
 
     public Biglietto() {
     }
 
-    public Biglietto(Mezzo mezzo, PuntoVendita puntoVendita, Tratta tratta, LocalDate data_emissione, boolean timbrato, double prezzo) {
+    public Biglietto(Mezzo mezzo, PuntoVendita puntoVendita, Tratta tratta, LocalDate data_emissione, boolean timbrato) {
         this.mezzo = mezzo;
         this.puntoVendita = puntoVendita;
         this.tratta = tratta;
         this.data_emissione = data_emissione;
         this.timbrato = timbrato;
-        this.prezzo = prezzo;
     }
 
     public Long getId_biglietto() {
@@ -99,14 +96,6 @@ public class Biglietto {
         this.timbrato = timbrato;
     }
 
-    public double getPrezzo() {
-        return prezzo;
-    }
-
-    public void setPrezzo(double prezzo) {
-        this.prezzo = prezzo;
-    }
-
     @Override
     public String toString() {
         return "Biglietto{" +
@@ -117,7 +106,6 @@ public class Biglietto {
                 ", codice_univoco_biglietto=" + codice_univoco_biglietto +
                 ", data_emissione=" + data_emissione +
                 ", timbrato=" + timbrato +
-                ", prezzo=" + prezzo +
                 '}';
     }
 }

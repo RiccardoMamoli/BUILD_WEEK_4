@@ -13,7 +13,7 @@ public class Tratta {
     private String zonaPartenza;
     private String capolinea;
     private double tempoPrevisto;
-    private int chilometraggio;
+    private double prezzo;
 
 
     @OneToMany(mappedBy = "tratta")
@@ -29,11 +29,11 @@ public class Tratta {
 
     }
 
-    public Tratta(String zonaPartenza, String capolinea, double tempoPrevisto, int chilometraggio, List<TrattaPercorsa> trattePercorse) {
+    public Tratta(String zonaPartenza, String capolinea, double tempoPrevisto, double prezzo, List<TrattaPercorsa> trattePercorse) {
         this.zonaPartenza = zonaPartenza;
         this.capolinea = capolinea;
         this.tempoPrevisto = tempoPrevisto;
-        this.chilometraggio = chilometraggio;
+        this.prezzo = prezzo;
         this.trattePercorse = trattePercorse;
     }
 
@@ -69,12 +69,12 @@ public class Tratta {
         this.tempoPrevisto = tempoPrevisto;
     }
 
-    public int getChilometraggio() {
-        return chilometraggio;
+    public double getPrezzo() {
+        return prezzo;
     }
 
-    public void setChilometraggio(int chilometraggio) {
-        this.chilometraggio = chilometraggio;
+    public void setPrezzo(double prezzo) {
+        this.prezzo = prezzo;
     }
 
     public List<TrattaPercorsa> getTrattePercorse() {
@@ -92,7 +92,7 @@ public class Tratta {
                 ", zonaPartenza='" + zonaPartenza + '\'' +
                 ", capolinea='" + capolinea + '\'' +
                 ", tempoPrevisto=" + tempoPrevisto +
-                ", chilometraggio=" + chilometraggio +
+                ", prezzo=" + prezzo +
                 ", trattePercorse=" + trattePercorse +
                 '}';
     }
