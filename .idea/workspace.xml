@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86b55a76-297e-4e62-9c58-6e7876f8414e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/build_week_4/src/main/java/riccardomamoli/dao/DistributoreDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build_week_4/src/main/java/riccardomamoli/dao/UtenteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build_week_4/src/main/java/riccardomamoli/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/build_week_4/src/main/java/riccardomamoli/Application.java" afterDir="false" />
-    </list>
+    <list default="true" id="86b55a76-297e-4e62-9c58-6e7876f8414e" name="Changes" comment="." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,10 +94,23 @@
       <updated>1728918082473</updated>
       <workItem from="1728995787711" duration="1346000" />
     </task>
+    <task id="LOCAL-00001" summary=".">
+      <option name="closed" value="true" />
+      <created>1729000552522</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1729000552522</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
