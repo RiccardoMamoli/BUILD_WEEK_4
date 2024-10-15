@@ -1,21 +1,25 @@
 package riccardomamoli.entities;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+
+import java.util.List;
 
 @Entity
-@Table(name = "distributore_automatico")
+@DiscriminatorValue("distributore_automatico")
 
-public class DistributoreAutomatico extends PuntoVendita{
+
+public class DistributoreAutomatico extends PuntoVendita {
 
     @Column(name = "attivo")
     private boolean attivo;
 
-    public DistributoreAutomatico(){}
+    public DistributoreAutomatico() {
+    }
 
-    public DistributoreAutomatico(long id, boolean attivo) {
-        super(id);
+    public DistributoreAutomatico(List<Abbonamento> abbonamenti, List<Biglietto> biglietti, boolean attivo) {
+        super(abbonamenti, biglietti);
         this.attivo = attivo;
     }
 

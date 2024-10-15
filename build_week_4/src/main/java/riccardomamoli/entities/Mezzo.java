@@ -4,7 +4,11 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Entity
+@Table(name = "mezzo")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo_mezzo", discriminatorType = DiscriminatorType.STRING)
+
 public abstract class Mezzo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

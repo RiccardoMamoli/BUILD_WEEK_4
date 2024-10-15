@@ -1,6 +1,10 @@
 package riccardomamoli.entities;
 
+import jakarta.persistence.Entity;
+
 import java.util.List;
+
+@Entity
 
 public class Autobus extends Mezzo {
 

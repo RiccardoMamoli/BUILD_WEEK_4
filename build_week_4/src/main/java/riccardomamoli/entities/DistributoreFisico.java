@@ -1,17 +1,15 @@
 package riccardomamoli.entities;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "distributore_fisico")
+@DiscriminatorValue("distributore_fisico")
 
-public class DistributoreFisico extends PuntoVendita{
 
-    public DistributoreFisico(){}
+public class DistributoreFisico extends PuntoVendita {
 
-    public DistributoreFisico(long id) {
-        super(id);
+    public DistributoreFisico() {
     }
 
     @Override
