@@ -20,7 +20,10 @@ public abstract class Mezzo {
     @OneToMany(mappedBy = "mezzo")
     private List<StatusMezzo> stati;
 
-    public Mezzo(){
+    @OneToMany(mappedBy = "mezzo")
+    private List<Biglietto> biglietti;
+
+    public Mezzo() {
 
     }
 

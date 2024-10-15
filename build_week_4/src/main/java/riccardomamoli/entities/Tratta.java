@@ -19,6 +19,12 @@ public class Tratta {
     @OneToMany(mappedBy = "tratta")
     private List<TrattaPercorsa> trattePercorse;
 
+    @OneToMany(mappedBy = "tratta")
+    private List<Biglietto> biglietti;
+
+    @OneToMany(mappedBy = "tratta")
+    private List<TrattaAbbonamento> trattaAbbonamenti;
+
     public Tratta() {
 
     }

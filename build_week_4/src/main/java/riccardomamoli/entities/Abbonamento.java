@@ -3,6 +3,7 @@ package riccardomamoli.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "abbonamento")
@@ -16,6 +17,9 @@ public class Abbonamento {
     @ManyToOne
     @JoinColumn(name = "id_punto_vendita", nullable = false)
     private PuntoVendita puntoVendita;
+
+    @OneToMany(mappedBy = "abbonamento")
+    private List<TrattaAbbonamento> trattaAbbonamenti;
 
     @Column(name = "codice_univoco_abbonamento", unique = true, nullable = false)
     private long codice_univoco_abbonamento;
@@ -32,7 +36,8 @@ public class Abbonamento {
     @Column(name = "prezzo", nullable = false)
     private double prezzo;
 
-    public Abbonamento(){}
+    public Abbonamento() {
+    }
 
     public Abbonamento(PuntoVendita puntoVendita, long codice_univoco_abbonamento, LocalDate data_emmissione, LocalDate data_scadenza, Enum tipologia_abbonamento, double prezzo) {
         this.puntoVendita = puntoVendita;

@@ -17,7 +17,11 @@ public abstract class PuntoVendita {
     @OneToMany(mappedBy = "punto_vendita")
     private List<Abbonamento> abbonamenti;
 
-    public PuntoVendita(){}
+    @OneToMany(mappedBy = "punto_vendita")
+    private List<Biglietto> biglietti;
+
+    public PuntoVendita() {
+    }
 
     public PuntoVendita(long id) {
         this.id = id;
