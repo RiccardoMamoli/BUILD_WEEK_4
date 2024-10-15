@@ -49,6 +49,10 @@ public class Biglietto {
         this.timbrato = timbrato;
     }
 
+    public Biglietto(Tram primoTram, DistributoreAutomatico primoDistributore) {
+    }
+
+
     private String generaCodice() {
         return UUID.randomUUID().toString();
     }

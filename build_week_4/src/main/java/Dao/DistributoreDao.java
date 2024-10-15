@@ -3,6 +3,7 @@ package Dao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import riccardomamoli.entities.Biglietto;
+import riccardomamoli.entities.DistributoreAutomatico;
 import riccardomamoli.entities.PuntoVendita;
 
 import java.time.LocalDate;
@@ -15,23 +16,33 @@ public class DistributoreDao {
         this.em = em;
     }
 
-
-    // aggiungi distributore
+    // Aggiungi distributore
     public void creazioneDistributore(PuntoVendita puntoVendita) {
+        em.getTransaction().begin();
         em.persist(puntoVendita);
+        em.getTransaction().commit();
     }
 
-    //Rimuovo un distributore
+    // Aggiungi biglietto
+    public void creazioneBiglietto(Biglietto biglietto) {
+        em.getTransaction().begin();
+        em.persist(biglietto);
+        em.getTransaction().commit();
+    }
+
+    // Rimuovi un distributore
     public void rimuovoDistributore(long id_distributore) throws Exception {
+        em.getTransaction().begin();
         PuntoVendita distributore = em.find(PuntoVendita.class, id_distributore);
         if (distributore == null) {
+            em.getTransaction().rollback();
             throw new Exception("Distributore non trovato tramite id: " + id_distributore);
         }
         em.remove(distributore);
-
+        em.getTransaction().commit();
     }
 
-    //Cerca distributore tramte id
+    // Cerca distributore tramite id
     public PuntoVendita ricercoDistributore(long id_Distributore) throws Exception {
         PuntoVendita trovato = em.find(PuntoVendita.class, id_Distributore);
         if (trovato == null) {
@@ -40,7 +51,7 @@ public class DistributoreDao {
         return trovato;
     }
 
-    // lista biglietti per lasso di tempo
+    // Lista biglietti per lasso di tempo
     public List<Biglietto> trovaBiglietti(long distributoreId, LocalDate start, LocalDate end) {
         String queryStr = "SELECT b FROM Biglietto b WHERE b.puntoVendita.id = :distributoreId AND b.data_emissione BETWEEN :start AND :end";
         TypedQuery<Biglietto> query = em.createQuery(queryStr, Biglietto.class);
@@ -49,5 +60,22 @@ public class DistributoreDao {
         query.setParameter("end", end);
         return query.getResultList();
     }
+
+    // Ricerca attivo/nonAttivo Distributore
+    public boolean isActive(long id) {
+        PuntoVendita distributore = em.find(PuntoVendita.class, id);
+        return distributore instanceof DistributoreAutomatico && ((DistributoreAutomatico) distributore).isAttivo();
+    }
+
+
+    // switch attivo/ non distributore
+    public void updateActive(long id, boolean active) {
+
+        PuntoVendita distributore = em.find(PuntoVendita.class, id);
+        if (distributore instanceof DistributoreAutomatico) {
+            ((DistributoreAutomatico) distributore).setAttivo(active);
+        }
+    }
+
 
 }
