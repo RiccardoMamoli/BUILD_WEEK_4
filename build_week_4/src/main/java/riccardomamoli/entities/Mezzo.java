@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+@Entity
+@Table(name = "mezzo")
+
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Mezzo {
     @Id

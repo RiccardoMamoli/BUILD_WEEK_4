@@ -22,7 +22,7 @@ public class Utente {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "tipologia_utente")
-    private Enum tipologiaUtente;
+    private TipologiaUtente tipologiaUtente;
 
     @OneToMany(mappedBy = "utente")
     private List<Tessera> tessere;
@@ -30,9 +30,10 @@ public class Utente {
     @Column(name = "data_di_nascita")
     private LocalDate data_di_nascita;
 
-    public Utente(){}
+    public Utente() {
+    }
 
-    public Utente( String nome, String cognome, Enum tipologiaUtente, LocalDate data_di_nascita) {
+    public Utente(String nome, String cognome, TipologiaUtente tipologiaUtente, LocalDate data_di_nascita) {
         this.nome = nome;
         this.cognome = cognome;
         this.tipologiaUtente = tipologiaUtente;
@@ -63,7 +64,7 @@ public class Utente {
         return tipologiaUtente;
     }
 
-    public void setTipologiaUtente(Enum tipologiaUtente) {
+    public void setTipologiaUtente(TipologiaUtente tipologiaUtente) {
         this.tipologiaUtente = tipologiaUtente;
     }
 

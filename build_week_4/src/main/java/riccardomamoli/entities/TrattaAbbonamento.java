@@ -1,14 +1,16 @@
 package riccardomamoli.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tratta_abbonamento")
 
 public class TrattaAbbonamento {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id_tratta_abbonamento")
+    private Long id_tratta_abbonamento;
 
     @ManyToOne
     @JoinColumn(name = "id_tratta")

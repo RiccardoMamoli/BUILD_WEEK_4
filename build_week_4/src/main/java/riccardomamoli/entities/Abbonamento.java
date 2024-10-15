@@ -31,7 +31,7 @@ public class Abbonamento {
     private LocalDate data_scadenza;
 
     @Column(name = "tipologia_abbonamento", nullable = false)
-    private Enum tipologia_abbonamento;
+    private TipologiaAbbonamento tipologia_abbonamento;
 
     @Column(name = "prezzo", nullable = false)
     private double prezzo;
@@ -39,7 +39,7 @@ public class Abbonamento {
     public Abbonamento() {
     }
 
-    public Abbonamento(PuntoVendita puntoVendita, long codice_univoco_abbonamento, LocalDate data_emmissione, LocalDate data_scadenza, Enum tipologia_abbonamento, double prezzo) {
+    public Abbonamento(PuntoVendita puntoVendita, long codice_univoco_abbonamento, LocalDate data_emmissione, LocalDate data_scadenza, TipologiaAbbonamento tipologia_abbonamento, double prezzo) {
         this.puntoVendita = puntoVendita;
         this.codice_univoco_abbonamento = codice_univoco_abbonamento;
         this.data_emmissione = data_emmissione;
@@ -88,7 +88,7 @@ public class Abbonamento {
         return tipologia_abbonamento;
     }
 
-    public void setTipologia_abbonamento(Enum tipologia_abbonamento) {
+    public void setTipologia_abbonamento(TipologiaAbbonamento tipologia_abbonamento) {
         this.tipologia_abbonamento = tipologia_abbonamento;
     }
 
