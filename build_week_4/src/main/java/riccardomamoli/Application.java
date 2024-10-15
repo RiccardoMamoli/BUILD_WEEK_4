@@ -3,7 +3,9 @@ package riccardomamoli;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import riccardomamoli.dao.TesseraDAO;
 import riccardomamoli.dao.UtenteDAO;
+import riccardomamoli.entities.Tessera;
 import riccardomamoli.entities.TipologiaUtente;
 import riccardomamoli.entities.Utente;
 
@@ -24,6 +26,8 @@ public class Application {
         Utente utente2 = new Utente("mattia", "gonnola", TipologiaUtente.OVER60, LocalDate.of(1890, 2, 4));
         Utente utente3 = new Utente("giacomo", "guidotti", TipologiaUtente.UNDER18, LocalDate.of(2007, 11, 9));
 
+        TesseraDAO tdao = new TesseraDAO(em);
+        Tessera tessera1 = new Tessera();
         em.close();
         emf.close();
 
