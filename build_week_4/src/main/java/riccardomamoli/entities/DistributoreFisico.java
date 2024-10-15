@@ -1,17 +1,19 @@
 package riccardomamoli.entities;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+
+import java.util.List;
 
 @Entity
-@Table(name = "distributore_fisico")
 
-public class DistributoreFisico extends PuntoVendita{
 
-    public DistributoreFisico(){}
+public class DistributoreFisico extends PuntoVendita {
 
-    public DistributoreFisico(long id) {
-        super(id);
+    public DistributoreFisico() {
+    }
+
+    public DistributoreFisico(List<Abbonamento> abbonamenti, List<Biglietto> biglietti) {
+        super(abbonamenti, biglietti);
     }
 
     @Override

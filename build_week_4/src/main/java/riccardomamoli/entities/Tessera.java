@@ -3,6 +3,7 @@ package riccardomamoli.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(name = "tessera")
@@ -22,7 +23,6 @@ public class Tessera {
     @JoinColumn(name = "id_abbonamento")
     private Abbonamento abbonamento;
 
-    @GeneratedValue
     @Column(name = "numero_tessera", unique = true)
     private String numero_tessera;
 
@@ -35,15 +35,20 @@ public class Tessera {
     @Column(name = "tessera_attiva")
     private boolean attiva;
 
-    public Tessera(){}
+    public Tessera() {
+    }
 
-    public Tessera( Utente utente, Abbonamento abbonamento, String numero_tessera, LocalDate data_rilascio, LocalDate data_scadenza, boolean attiva) {
+    public Tessera(Utente utente, Abbonamento abbonamento, String numero_tessera, LocalDate data_rilascio, LocalDate data_scadenza, boolean attiva) {
         this.utente = utente;
         this.abbonamento = abbonamento;
-        this.numero_tessera = numero_tessera;
+        this.numero_tessera = generaCodice();
         this.data_rilascio = data_rilascio;
         this.data_scadenza = data_scadenza;
         this.attiva = attiva;
+    }
+
+    private String generaCodice() {
+        return UUID.randomUUID().toString();
     }
 
     public long getId() {

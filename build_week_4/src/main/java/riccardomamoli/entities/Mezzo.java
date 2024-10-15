@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Entity
+@Table(name = "mezzo")
+
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Mezzo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

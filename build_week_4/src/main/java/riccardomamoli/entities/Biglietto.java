@@ -3,6 +3,7 @@ package riccardomamoli.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(name = "biglietto")
@@ -27,8 +28,7 @@ public class Biglietto {
     private Tratta tratta;
 
     @Column(name = "codice_univoco_biglietto", unique = true)
-    @GeneratedValue
-    private Long codice_univoco_biglietto;
+    private String codice_univoco_biglietto;
 
     @Column(name = "data_emissione")
     private LocalDate data_emissione;
@@ -36,19 +36,21 @@ public class Biglietto {
     @Column(name = "timbrato")
     private boolean timbrato;
 
-    @Column(name = "prezzo")
-    private double prezzo;
 
     public Biglietto() {
     }
 
-    public Biglietto(Mezzo mezzo, PuntoVendita puntoVendita, Tratta tratta, LocalDate data_emissione, boolean timbrato, double prezzo) {
+    public Biglietto(Mezzo mezzo, PuntoVendita puntoVendita, Tratta tratta, String codice_univoco_biglietto, LocalDate data_emissione, boolean timbrato) {
         this.mezzo = mezzo;
         this.puntoVendita = puntoVendita;
         this.tratta = tratta;
+        this.codice_univoco_biglietto = generaCodice();
         this.data_emissione = data_emissione;
         this.timbrato = timbrato;
-        this.prezzo = prezzo;
+    }
+
+    private String generaCodice() {
+        return UUID.randomUUID().toString();
     }
 
     public Long getId_biglietto() {
@@ -79,7 +81,7 @@ public class Biglietto {
         this.tratta = tratta;
     }
 
-    public Long getCodice_univoco_biglietto() {
+    public String getCodice_univoco_biglietto() {
         return codice_univoco_biglietto;
     }
 
@@ -99,14 +101,6 @@ public class Biglietto {
         this.timbrato = timbrato;
     }
 
-    public double getPrezzo() {
-        return prezzo;
-    }
-
-    public void setPrezzo(double prezzo) {
-        this.prezzo = prezzo;
-    }
-
     @Override
     public String toString() {
         return "Biglietto{" +
@@ -117,7 +111,6 @@ public class Biglietto {
                 ", codice_univoco_biglietto=" + codice_univoco_biglietto +
                 ", data_emissione=" + data_emissione +
                 ", timbrato=" + timbrato +
-                ", prezzo=" + prezzo +
                 '}';
     }
 }
