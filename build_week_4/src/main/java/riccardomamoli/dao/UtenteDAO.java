@@ -18,4 +18,11 @@ public class UtenteDAO {
         tx.commit();
         System.out.println("l'utente " + utente.getNome() + utente.getCognome() + "è stato aggiunto");
     }
+    public void removeUtente(Utente utente) {
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.remove(utente);
+        tx.commit();
+        System.out.println("l'utente " + utente.getNome() + "è stato eliminato");
+    }
 }

@@ -27,7 +27,8 @@ public class Application {
         Utente utente3 = new Utente("giacomo", "guidotti", TipologiaUtente.UNDER18, LocalDate.of(2007, 11, 9));
 
         TesseraDAO tdao = new TesseraDAO(em);
-        Tessera tessera1 = new Tessera();
+        Tessera tessera1 = new Tessera( );
+
         em.close();
         emf.close();
 
