@@ -1,11 +1,13 @@
 package riccardomamoli.entities;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 import java.util.List;
 
 @Entity
+@DiscriminatorValue("distributore_automatico")
 
 
 public class DistributoreAutomatico extends PuntoVendita {

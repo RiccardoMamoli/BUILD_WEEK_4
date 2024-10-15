@@ -7,6 +7,7 @@ import java.util.List;
 @Entity
 @Table(name = "punto_vendita")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo_distributore", discriminatorType = DiscriminatorType.STRING)
 
 public abstract class PuntoVendita {
     @Id
