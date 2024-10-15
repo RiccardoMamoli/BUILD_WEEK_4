@@ -22,21 +22,21 @@ public class Utente {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "tipologia_utente")
-    private TipologiaUtente tipologiaUtente;
+    private Enum tipologiaUtente;
 
-    @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "utente")
     private List<Tessera> tessere;
 
     @Column(name = "data_di_nascita")
-    private LocalDate dataDiNascita;
+    private LocalDate data_di_nascita;
 
     public Utente(){}
 
-    public Utente(String nome, String cognome, TipologiaUtente tipologiaUtente, LocalDate dataDiNascita) {
+    public Utente( String nome, String cognome, Enum tipologiaUtente, LocalDate data_di_nascita) {
         this.nome = nome;
         this.cognome = cognome;
         this.tipologiaUtente = tipologiaUtente;
-        this.dataDiNascita = dataDiNascita;
+        this.data_di_nascita = data_di_nascita;
     }
 
     public long getId() {
@@ -59,20 +59,20 @@ public class Utente {
         this.cognome = cognome;
     }
 
-    public TipologiaUtente getTipologiaUtente() {
+    public Enum getTipologiaUtente() {
         return tipologiaUtente;
     }
 
-    public void setTipologiaUtente(TipologiaUtente tipologiaUtente) {
+    public void setTipologiaUtente(Enum tipologiaUtente) {
         this.tipologiaUtente = tipologiaUtente;
     }
 
-    public LocalDate getDataDiNascita() {
-        return dataDiNascita;
+    public LocalDate getData_di_nascita() {
+        return data_di_nascita;
     }
 
-    public void setDataDiNascita(LocalDate dataDiNascita) {
-        this.dataDiNascita = dataDiNascita;
+    public void setData_di_nascita(LocalDate data_di_nascita) {
+        this.data_di_nascita = data_di_nascita;
     }
 
     @Override
@@ -82,7 +82,7 @@ public class Utente {
                 ", nome='" + nome + '\'' +
                 ", cognome='" + cognome + '\'' +
                 ", tipologiaUtente=" + tipologiaUtente +
-                ", dataDiNascita=" + dataDiNascita +
+                ", data_di_nascita=" + data_di_nascita +
                 '}';
     }
 }
