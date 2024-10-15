@@ -20,6 +20,9 @@ public abstract class Mezzo {
     @OneToMany(mappedBy = "mezzo")
     private List<StatusMezzo> stati;
 
+    public Mezzo(){
+
+    }
 
     public Mezzo(int capienza, StatoMezzo statoAttuale, List<TrattaPercorsa> trattePercorse, List<StatusMezzo> stati) {
         this.capienza = capienza;
@@ -32,9 +35,6 @@ public abstract class Mezzo {
         return id_Mezzo;
     }
 
-    public void setId_Mezzo(Long id_Mezzo) {
-        this.id_Mezzo = id_Mezzo;
-    }
 
     public int getCapienza() {
         return capienza;
