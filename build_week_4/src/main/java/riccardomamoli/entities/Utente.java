@@ -32,8 +32,7 @@ public class Utente {
 
     public Utente(){}
 
-    public Utente(long id, String nome, String cognome, Enum tipologiaUtente, LocalDate data_di_nascita) {
-        this.id = id;
+    public Utente( String nome, String cognome, Enum tipologiaUtente, LocalDate data_di_nascita) {
         this.nome = nome;
         this.cognome = cognome;
         this.tipologiaUtente = tipologiaUtente;

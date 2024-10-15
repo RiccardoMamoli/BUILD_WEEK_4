@@ -34,8 +34,7 @@ public class Abbonamento {
 
     public Abbonamento(){}
 
-    public Abbonamento(long id_abbonamento, PuntoVendita puntoVendita, long codice_univoco_abbonamento, LocalDate data_emmissione, LocalDate data_scadenza, Enum tipologia_abbonamento, double prezzo) {
-        this.id_abbonamento = id_abbonamento;
+    public Abbonamento(PuntoVendita puntoVendita, long codice_univoco_abbonamento, LocalDate data_emmissione, LocalDate data_scadenza, Enum tipologia_abbonamento, double prezzo) {
         this.puntoVendita = puntoVendita;
         this.codice_univoco_abbonamento = codice_univoco_abbonamento;
         this.data_emmissione = data_emmissione;

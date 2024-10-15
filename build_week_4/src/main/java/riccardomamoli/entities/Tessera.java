@@ -37,8 +37,7 @@ public class Tessera {
 
     public Tessera(){}
 
-    public Tessera(long id, Utente utente, Abbonamento abbonamento, String numero_tessera, LocalDate data_rilascio, LocalDate data_scadenza, boolean attiva) {
-        this.id = id;
+    public Tessera( Utente utente, Abbonamento abbonamento, String numero_tessera, LocalDate data_rilascio, LocalDate data_scadenza, boolean attiva) {
         this.utente = utente;
         this.abbonamento = abbonamento;
         this.numero_tessera = numero_tessera;
