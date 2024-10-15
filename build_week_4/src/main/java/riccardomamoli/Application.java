@@ -7,7 +7,6 @@ import jakarta.persistence.Persistence;
 import riccardomamoli.entities.Abbonamento;
 import riccardomamoli.entities.Biglietto;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,18 +19,20 @@ public class Application {
         DistributoreDao dao = new DistributoreDao(em);
         List<Abbonamento> abbonamenti = new ArrayList<>();
         List<Biglietto> biglietti = new ArrayList<>();
+
+
         boolean attivo = true;
-        Biglietto primoBiglietto = new Biglietto();
-        biglietti.add(primoBiglietto);
 
 
         em.getTransaction().begin();
+
+
 //        DistributoreAutomatico primoDistributore = new DistributoreAutomatico(abbonamenti, biglietti, attivo);
-        //creazione distributore
+////        creazione distributore
 //        dao.creazioneDistributore(primoDistributore);
 //        DistributoreFisico primoFisico = new DistributoreFisico(abbonamenti, biglietti);
 //        dao.creazioneDistributore(primoFisico);
-        // rimuovi distributore
+//        // rimuovi distributore
 //        long idDistributore = 2;
 //        try {
 //            dao.rimuovoDistributore(idDistributore);
@@ -57,28 +58,54 @@ public class Application {
 //            System.out.println(e.getMessage());
 //        }
 
+        // ricerca biglietti per punto vendita
+
+//        try {
+//            long distributoreId = 1; // ID del distributore
+//            LocalDate start = LocalDate.of(2024, 10, 1); // Data inizio
+//            LocalDate end = LocalDate.of(2024, 10, 31); // Data fine
+//
+//            List<Biglietto> bigliettiPerPuntoVendita = dao.trovaBiglietti(distributoreId, start, end);
+//
+//            for (Biglietto biglietto : bigliettiPerPuntoVendita) {
+//                System.out.println(biglietto);
+//            }
+//        } catch (Exception e) {
+//            System.out.println("Errore: " + e.getMessage());
+
+        //cerco attivo/non distributore
+
+//        try {
+//            long idDistributore = 1; // Sostituisci con un ID valido nel tuo database
+//
+//            boolean attivissimo = dao.isActive(idDistributore);
+//            System.out.println("Il distributore con ID " + idDistributore + " è attivo: " + attivissimo);
+//
+//        } catch (Exception e) {
+//            System.out.println("Errore: " + e.getMessage());
+//        }
         try {
-            // Definisci i parametri per la ricerca
-            long distributoreId = 1; // ID del distributore
-            LocalDate start = LocalDate.of(2024, 10, 1); // Data inizio
-            LocalDate end = LocalDate.of(2024, 10, 31); // Data fine
+            long idDistributore = 1; // Sostituisci con un ID valido nel tuo database
+            boolean nuovoStato = false; // Imposta lo stato desiderato
 
-            // Trova i biglietti nel lasso di tempo specificato
-            List<Biglietto> bigliettiPerPuntoVendita = dao.trovaBiglietti(distributoreId, start, end);
+            // Aggiorna lo stato del distributore
 
-            // Stampa i risultati
-            for (Biglietto biglietto : bigliettiPerPuntoVendita) {
-                System.out.println(biglietto);
-            }
+            dao.updateActive(idDistributore, nuovoStato);
+
+
+            System.out.println("Stato del distributore aggiornato con successo.");
+
+
         } catch (Exception e) {
-            System.out.println("Errore: " + e.getMessage());
-
-
-            em.getTransaction().commit();
-
-
-            em.close();
-            emf.close();
+            System.out.println(e.getMessage());
         }
+
+
+        em.getTransaction().commit();
+
+
+        em.close();
+        emf.close();
     }
 }
+
