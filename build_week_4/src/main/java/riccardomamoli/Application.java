@@ -3,6 +3,11 @@ package riccardomamoli;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import riccardomamoli.dao.UtenteDAO;
+import riccardomamoli.entities.TipologiaUtente;
+import riccardomamoli.entities.Utente;
+
+import java.time.LocalDate;
 
 public class Application {
 
@@ -14,9 +19,16 @@ public class Application {
         em.getTransaction().commit();
 
 
+        UtenteDAO udao = new UtenteDAO(em);
+        Utente utente1 = new Utente("franco", "rossi", TipologiaUtente.UNDER25, LocalDate.of(2000, 10, 3));
+        Utente utente2 = new Utente("mattia", "gonnola", TipologiaUtente.OVER60, LocalDate.of(1890, 2, 4));
+        Utente utente3 = new Utente("giacomo", "guidotti", TipologiaUtente.UNDER18, LocalDate.of(2007, 11, 9));
+
         em.close();
         emf.close();
 
+
+       /* Scanner scanner = new Scanner(System.in);
 
                 while (true) {
                     try {
@@ -25,20 +37,15 @@ public class Application {
                         scanner.nextLine();
 
                         switch (scelta) {
-                            case 1: System.out.println("Benvenuto utente, seleziona il punto vendita:");
+                            case 1:
+                                System.out.println("Benvenuto utente, seleziona il punto vendita:");
 
-
-                            do {
-                                int selezioneUtente = scanner.nextInt();
-                                switch (selezioneUtente) {
-                                    case 1:
-                                }
-                            }
-                            while(!selezioneUtente )
-                            }
-                            }
 
                         }
 
+                    }
+                }
+}
+*/
     }
 }
