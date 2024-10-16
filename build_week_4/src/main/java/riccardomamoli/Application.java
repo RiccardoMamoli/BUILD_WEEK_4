@@ -9,6 +9,7 @@ import riccardomamoli.entities.Abbonamento;
 import riccardomamoli.entities.Biglietto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -135,13 +136,20 @@ public class Application {
 //            System.out.println("Errore: " + e.getMessage());
 
 
-////       // metodo per cercare tutte le tratte percorse di un mezzo
-//        try {
-//            long distributore = 1;
-//            mDao.trovaTrattePercorse(distributore);
-//        } catch (Exception e) {
-//            System.out.println("Errore: " + e.getMessage());
+               try {
+            // Esempio di dati per il test
+            Long mezzoId = 1L; // ID del mezzo da testare
+            LocalDateTime startTime = LocalDateTime.of(2024, 1, 1, 0, 0);
+            LocalDateTime endTime = LocalDateTime.of(2024, 12, 31, 23, 59);
 
+
+
+            // Chiama il metodo e stampa il risultato
+            long count = mDao.countTratteInPeriod(mezzoId, startTime, endTime);
+            System.out.println("Numero di tratte percorse: " + count);
+        } catch (Exception e) {
+            System.out.println("Errore: " + e.getMessage());
+        }
             em.getTransaction().commit();
 
             em.close();

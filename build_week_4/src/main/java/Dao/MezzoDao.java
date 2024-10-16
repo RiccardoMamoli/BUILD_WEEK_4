@@ -5,6 +5,7 @@ import jakarta.persistence.TypedQuery;
 import riccardomamoli.entities.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class MezzoDao {
@@ -74,14 +75,17 @@ public class MezzoDao {
             System.out.println("Stato cambiato in: " + nuovoStato);
         }
     }
-
-    // Lista tratte per mezzo
-    public List<TrattaPercorsa> trovaTrattePercorse(long id_mezzo) {
-        String queryStr = "SELECT tp FROM TrattaPercorsa tp WHERE tp.mezzo.id = :mezzoId";
-        TypedQuery<TrattaPercorsa> query = em.createQuery(queryStr, TrattaPercorsa.class);
-        query.setParameter("mezzoId", id_mezzo);
-        return query.getResultList();
+    public long countTratteInPeriod(Long id_Mezzo, LocalDateTime startTime, LocalDateTime endTime) {
+        String jpql = "SELECT COUNT(t) FROM TrattaPercorsa t WHERE t.mezzo.id = :id_Mezzo AND t.orarioPartenza BETWEEN :startTime AND :endTime";
+        TypedQuery<Long> query = em.createQuery(jpql, Long.class);
+        query.setParameter("id_Mezzo", id_Mezzo);
+        query.setParameter("startTime", startTime);
+        query.setParameter("endTime", endTime);
+        return query.getSingleResult();
     }
+
+
+
 
 
 }
