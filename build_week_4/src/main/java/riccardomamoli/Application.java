@@ -1,12 +1,14 @@
 package riccardomamoli;
 
 import Dao.DistributoreDao;
+import Dao.MezzoDao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import riccardomamoli.entities.Abbonamento;
 import riccardomamoli.entities.Biglietto;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +19,7 @@ public class Application {
         EntityManager em = emf.createEntityManager();
 
         DistributoreDao dao = new DistributoreDao(em);
+        MezzoDao mDao = new MezzoDao(em);
         List<Abbonamento> abbonamenti = new ArrayList<>();
         List<Biglietto> biglietti = new ArrayList<>();
 
@@ -84,28 +87,69 @@ public class Application {
 //        } catch (Exception e) {
 //            System.out.println("Errore: " + e.getMessage());
 //        }
-        try {
-            long idDistributore = 1; // Sostituisci con un ID valido nel tuo database
-            boolean nuovoStato = false; // Imposta lo stato desiderato
 
-            // Aggiorna lo stato del distributore
+        // switch attivo/ non distributore
 
-            dao.updateActive(idDistributore, nuovoStato);
+//        try {
+//            long idDistributore = 1; // Sostituisci con un ID valido nel tuo database
+//            boolean nuovoStato = false; // Imposta lo stato desiderato
+//
+//            // Aggiorna lo stato del distributore
+//
+//            dao.updateActive(idDistributore, nuovoStato);
+//
+//
+//            System.out.println("Stato del distributore aggiornato con successo.");
+//
+//
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
+        // trova abbonamenti
+//        try {
+//            long distributoreId = 1; // ID del distributore
+//            LocalDate start = LocalDate.of(2024, 10, 1); // Data inizio
+//            LocalDate end = LocalDate.of(2024, 10, 31); // Data fine
+//
+//            List<Abbonamento> abbonamentiPerPuntoVendita = dao.trovaAbbonamenti(distributoreId, start, end);
+//
+//            for (Abbonamento abbonamento : abbonamentiPerPuntoVendita) {
+//                System.out.println(abbonamento);
+//            }
+//        } catch (Exception e) {
+//            System.out.println("Errore: " + e.getMessage());
+
+        // verifica dello stato del mezzo
+//        try {
+//            long distributore = 1 ;
+//            mDao.statoMezzo(distributore);
+//        } catch (Exception e){
+//            System.out.println("Errore: " + e.getMessage());
+//
+//        }
+        //metodo per cambiare lo stato del mezzo
+//        try {
+//            long distributore = 1;
+//            mDao.cambiaStatoMezzo(distributore);
+//        } catch (Exception e) {
+//            System.out.println("Errore: " + e.getMessage());
 
 
-            System.out.println("Stato del distributore aggiornato con successo.");
-
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-
-        em.getTransaction().commit();
-
-
-        em.close();
-        emf.close();
+////       // metodo per cercare tutte le tratte percorse di un mezzo
+//        try {
+//            long distributore = 1;
+//            mDao.trovaTrattePercorse(distributore);
+//        } catch (Exception e) {
+//            System.out.println("Errore: " + e.getMessage());
+//
+//            em.getTransaction().commit();
+//
+//            em.close();
+//            emf.close();
+//        }
+//
     }
+
+
 }
 
