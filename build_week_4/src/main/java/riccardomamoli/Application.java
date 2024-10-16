@@ -141,11 +141,11 @@ public class Application {
 //            mDao.trovaTrattePercorse(distributore);
 //        } catch (Exception e) {
 //            System.out.println("Errore: " + e.getMessage());
-//
-//            em.getTransaction().commit();
-//
-//            em.close();
-//            emf.close();
+
+            em.getTransaction().commit();
+
+            em.close();
+            emf.close();
 //        }
 //
     }

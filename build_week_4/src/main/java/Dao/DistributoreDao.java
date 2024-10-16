@@ -36,7 +36,7 @@ public class DistributoreDao {
         em.getTransaction().begin();
         PuntoVendita distributore = em.find(PuntoVendita.class, id_distributore);
         if (distributore == null) {
-            em.getTransaction().rollback();
+            em.getTransaction();
             throw new Exception("Distributore non trovato tramite id: " + id_distributore);
         }
         em.remove(distributore);

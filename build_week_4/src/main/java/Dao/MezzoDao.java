@@ -26,7 +26,7 @@ public class MezzoDao {
         em.getTransaction().begin();
         Mezzo mezzo = em.find(Mezzo.class, id_mezzo);
         if (mezzo == null) {
-            em.getTransaction().rollback();
+            em.getTransaction();
             throw new Exception("Mezzo non trovato tramite id: " + id_mezzo);
         }
         em.remove(mezzo);
