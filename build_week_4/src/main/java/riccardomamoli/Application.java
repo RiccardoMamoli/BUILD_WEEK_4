@@ -135,21 +135,23 @@ public class Application {
 //        } catch (Exception e) {
 //            System.out.println("Errore: " + e.getMessage());
 
-
-               try {
-            // Esempio di dati per il test
-            Long mezzoId = 1L; // ID del mezzo da testare
-            LocalDateTime startTime = LocalDateTime.of(2024, 1, 1, 0, 0);
-            LocalDateTime endTime = LocalDateTime.of(2024, 12, 31, 23, 59);
-
-
-
-            // Chiama il metodo e stampa il risultato
-            long count = mDao.countTratteInPeriod(mezzoId, startTime, endTime);
-            System.out.println("Numero di tratte percorse: " + count);
-        } catch (Exception e) {
-            System.out.println("Errore: " + e.getMessage());
-        }
+        // metodo per n.totale tratte percorse da un mezzo
+//        try {
+//            // Esempio di dati per il test
+//            Long mezzoId = 1L; // ID del mezzo da testare
+//            long count = mDao.countTratteInPeriod(mezzoId);
+//            System.out.println("Numero di tratte percorse: " + count);
+//        } catch (Exception e) {
+//            System.out.println("Errore: " + e.getMessage());
+//        }
+         // metodo per calcolare tempo medio effettivo tratta
+//        try{
+//            long mezzoId =1L;
+//            long trattaId=2L;
+//            mDao.calcolaTempoMedioEffettivo(mezzoId,trattaId);
+//        }catch (Exception e) {
+//            System.out.println("Errore: " + e.getMessage());
+//       }
             em.getTransaction().commit();
 
             em.close();
