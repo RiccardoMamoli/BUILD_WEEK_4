@@ -2,6 +2,7 @@ package Dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
+import riccardomamoli.entities.Abbonamento;
 import riccardomamoli.entities.Biglietto;
 import riccardomamoli.entities.DistributoreAutomatico;
 import riccardomamoli.entities.PuntoVendita;
@@ -55,6 +56,15 @@ public class DistributoreDao {
     public List<Biglietto> trovaBiglietti(long distributoreId, LocalDate start, LocalDate end) {
         String queryStr = "SELECT b FROM Biglietto b WHERE b.puntoVendita.id = :distributoreId AND b.data_emissione BETWEEN :start AND :end";
         TypedQuery<Biglietto> query = em.createQuery(queryStr, Biglietto.class);
+        query.setParameter("distributoreId", distributoreId);
+        query.setParameter("start", start);
+        query.setParameter("end", end);
+        return query.getResultList();
+    }
+    // Lista Abbonamenti per lasso di tempo
+    public List<Abbonamento> trovaAbbonamenti(long distributoreId, LocalDate start, LocalDate end) {
+        String queryStr = "SELECT a FROM Abbonamento a WHERE a.puntoVendita.id = :distributoreId AND a.data_emmissione BETWEEN :start AND :end";
+        TypedQuery<Abbonamento> query = em.createQuery(queryStr, Abbonamento.class);
         query.setParameter("distributoreId", distributoreId);
         query.setParameter("start", start);
         query.setParameter("end", end);

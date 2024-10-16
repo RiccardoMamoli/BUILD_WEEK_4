@@ -77,12 +77,13 @@ public abstract class Mezzo {
 
     @Override
     public String toString() {
-        return "Mezzo{" +
-                "id_Mezzo=" + id_Mezzo +
-                ", capienza=" + capienza +
-                ", statoAttuale=" + statoAttuale +
-                ", trattePercorse=" + trattePercorse +
-                ", stati=" + stati +
-                '}';
+        return null;
+    }
+
+    public String getStato() {
+        return null;
+    }
+
+    public void setStato(String nuovoStato) {
     }
 }
